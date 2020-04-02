@@ -1,0 +1,11 @@
+<h3>Modificar Tarea</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" class="form-control" id="nombre" required [(ngModel)]="task.nombre" name="nombre">
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+  </form>
+</div>

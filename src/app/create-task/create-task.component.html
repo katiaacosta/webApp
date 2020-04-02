@@ -1,0 +1,21 @@
+<h3>Crear tarea</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" class="form-control" id="nombre" required [(ngModel)]="task.nombre" name="nombre">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Numero de carpeta</label>
+      <input type="text" class="form-control" id="carpet.id" required [(ngModel)]="task.carpet.id" name="carpet.id">
+    </div>
+
+    <button type="submit" class="btn btn-success">Crear</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>Creada exitosamente</h4>
+  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+</div>

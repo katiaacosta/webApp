@@ -1,0 +1,50 @@
+<div class="panel panel-primary">
+    <!-- <div class="panel-heading">
+      <h2>Mis Tareas</h2>
+    </div> -->
+    <div class="panel-body">
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><h3>Carpetas</h3></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let carpet of carpets | async">
+            <td>
+            <a [routerLink]="['/detailsCarpet',carpet.id]" class="nav-link" routerLinkActive="active">{{carpet.nombre}}</a>
+            </td>            
+            <td><button (click)="deleteCarpet(carpet.id)" class="btn btn-danger">Borrar</button>
+                <button (click)="updateCarpet(carpet.id)" class="btn btn-info" style="margin-left: 10px">Editar</button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><h3>Tareas</h3></th>
+            <th>Realizada</th>
+            <th>Carpeta contenedora</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks | async">
+            <td>{{task.nombre}}</td>
+            <td><input type="checkbox" [(ngModel)]="!task.pendiente" [checked]="task.pendiente" (ngModelChange)="onChange(task.id,$event)"></td>
+            <td>{{task.carpet.nombre}}</td>
+            <td><button (click)="deleteTask(task.id)" class="btn btn-danger">Borrar</button>
+                <!-- <button (click)="taskDetails(task.id)" class="btn btn-info" style="margin-left: 10px">Detalles</button> -->
+                <button (click)="updateTask(task.id)" class="btn btn-info" style="margin-left: 10px">Editar</button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

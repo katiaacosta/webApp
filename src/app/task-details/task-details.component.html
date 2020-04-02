@@ -1,0 +1,18 @@
+<h2>Detalles de tarea</h2> 
+
+<hr/>
+<div *ngIf="task">
+  <div>
+    <label><b>Nombre: </b></label> {{task.nombre}}
+  </div>
+  <div>
+    <label><b>Pendiente: </b></label> {{task.pendiente}}
+  </div>
+  <div>
+    <label><b>Carpeta contenedora: </b></label> {{task.carpetId}}
+  </div>  
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Volver al listado</button><br>

@@ -1,0 +1,22 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Lista de carpetas</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Numero de carpeta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let carpet of carpets | async">
+            <td>{{carpet.id}}</td>
+            <td><button (click)="deleteCarpet(carpet.id)" class="btn btn-danger">Borrar</button>
+                <button (click)="carpetDetails(carpet.id)" class="btn btn-info" style="margin-left: 10px">Detalles</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

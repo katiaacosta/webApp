@@ -1,0 +1,34 @@
+<h2>{{carpet.nombre}}</h2> 
+
+<hr/>
+<div *ngIf="tasks">
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Realizada</th>
+          <th>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>{{task.nombre}}</td>
+          <!-- <td>{{task.pendiente}}</td> -->
+<td><input type="checkbox" [(ngModel)]="!task.pendiente" [checked]="task.pendiente" (ngModelChange)="onChange(task.id,$event)"></td>
+         
+
+          <td><button (click)="deleteTask(task.id)" class="btn btn-danger">Borrar</button>
+              <!-- <button (click)="taskDetails(task.id)" class="btn btn-info" style="margin-left: 10px">Detalles</button> -->
+              <button (click)="updateTask(task.id)" class="btn btn-info" style="margin-left: 10px">Editar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Volver al listado</button><br>
